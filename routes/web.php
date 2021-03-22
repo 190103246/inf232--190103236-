@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Models\Post;
 
-
+use App\Http\Controllers\BlogController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,15 +22,11 @@ Route::get('/', function () {
 });
 
 
-Route::get('post/add', function(){
+Route::get('post/add', function() {
     DB::table('posts')->insert([
-        'name' => 'Danat',
-        'surname' => 'Duisen',
-        'age' => '19'
+        'title' => 'web',
+        'body' => 'Danat'
     ]);
 });
 
-Route::get('post', function() {
-    $post = Post::find(1);
-    return $post;
-});
+Route::get('post', [BlogController::class, 'index']);
