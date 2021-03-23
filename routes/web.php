@@ -30,3 +30,8 @@ Route::get('post/add', function() {
 });
 
 Route::get('post', [BlogController::class, 'index']);
+Route::get('blog/l/create', function() {
+    return view('blog/l.create');
+});
+
+Route::post('blog/l/create', [BlogController::class, 'store'])->name('add-client');
