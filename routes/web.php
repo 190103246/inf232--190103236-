@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Post;
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\StudentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,3 +38,7 @@ Route::get('blog/l/create', function() {
 Route::post('blog/l/create', [BlogController::class, 'store'])->name('add-client');
 
 Route::get('post/{id}', [BlogController::class, 'get_post']);
+
+Route::get('/add-student',[StudentController::class,'addStudent']);
+
+Route::post('/add-student', [StudentController::class,'storeStudent'])->name('student.store');
